@@ -224,8 +224,13 @@ $dash = new Dashboard()
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </section>
   <?php
+$database_name = database_name;
+$user = user;
+$password = pass;
+$server = server;
+
 try {
-    $pdo = new PDO('mysql:host=localhost;dbname=jobjuan', 'root', '');
+    $pdo = new PDO("mysql:host=$server;dbname=$database_name", $user, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $categories = array(
@@ -269,13 +274,13 @@ try {
     $chartDataJSON = json_encode($chartData);
 
     // Pass the JSON data to your JavaScript code
-    
     echo "<script>var chartData = $chartDataJSON;</script>";
 
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
 ?>
+
 
 
 
