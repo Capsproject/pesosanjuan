@@ -16,19 +16,7 @@
 
           <fieldset>
             <legend> Update User Account</legend>
-                   
-                    <!-- <div class="form-group">
-                    <div class="col-md-8">
-                      <label class="col-md-4 control-label" for=
-                      "user_id">User Id:</label> -->
-
-                      <!-- <div class="col-md-8"> -->
-                        
-                         <input id="USERID" name="USERID" type="Hidden" value="<?php echo $singleuser->USERID; ?>">
-                   <!--    </div>
-                    </div>
-                  </div>      -->      
-                  
+                         <input id="USERID" name="USERID" type="Hidden" value="<?php echo $singleuser->USERID; ?>">                  
                   <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
@@ -93,11 +81,7 @@
                       </div>
                     </div>
                   </div>
-
-              
           </fieldset> 
- 
-          
         </form>
       
 

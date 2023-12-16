@@ -2,13 +2,6 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title><?php
-                // $query = "SELECT * FROM `tbltitle` WHERE TItleID=1";
-                // $res = mysql_query($query) or die(mysql_error());
-                // $viewTitle = mysql_fetch_assoc($res);
-                // echo $viewTitle['Title'];
-            ?>
-        </title>
        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.5 -->
         <link rel="stylesheet" href="<?php echo web_root;?>bootstrap/css/bootstrap.min.css">
@@ -101,7 +94,7 @@
 
 
 
- <div class="modal fade" id="menuModal" tabindex="-1">
+<div class="modal fade" id="menuModal" tabindex="-1">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -122,7 +115,8 @@
                                                             <input class="mealid" type="hidden" name="mealid" id="mealid" value="">
                                                               <input name="MAX_FILE_SIZE" type="hidden" 
                                                               value="1000000"> 
-                                                              <input id="photo" name="photo" type="file">
+                                                              <input id="photo" name="photo" type="file"
+                                                              accept="image/png, image/gif, image/jpeg">
                                                         </div>
 
                                                         <div class="col-md-4"></div>
@@ -190,34 +184,64 @@
             <i class="fa fa-list"></i> <span>Sector</span>  
           </a>
         </li> 
-       <!--  <li class="treeview">
-          <a href="#">
-            <i class="fa fa-laptop"></i>
-            <span>UI Elements</span>
-            <i class="fa fa-angle-left pull-right"></i>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo web_root ;?>pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-            <li><a href="<?php echo web_root ;?>pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-            <li><a href="<?php echo web_root ;?>pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-            <li><a href="<?php echo web_root ;?>pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-            <li><a href="<?php echo web_root ;?>pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-            <li><a href="<?php echo web_root ;?>pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
-          </ul>
-        </li> -->
-         
-         <li class="<?php echo (currentpage() == 'user') ? "active" : false;?>">
+
+        <li class="<?php echo (currentpage() == 'user') ? "active" : false;?>">
           <a href="<?php echo web_root; ?>admin/user/">
             <i class="fa fa-user"></i> <span>Manage Users</span> </a>
         </li>
-        
+        <li>
+          <a href="<?php echo web_root; ?>admin/banner/">
+          <!-- <a href="#" data-toggle="modal" data-target="#changeBanner"> -->
+            <i class="fa fa-image"></i> <span>Change Banner</span>
+          </a>
+        </li>
+
       </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
    <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+  <div class="modal fade" id="changeBanner" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button class="close" data-dismiss="modal" type=
+                  "button">×</button>
 
+                  <h4 class="modal-title" id="myModalLabel">Choose Image.</h4>
+                </div>
+
+                <form action="<?php echo web_root; ?>admin/banner/controller.php?action=update-banner" enctype="multipart/form-data" method="post">
+                  <div class="modal-body">
+                    <div class="form-group">
+                      <div class="rows">
+                        <div class="col-md-12">
+                          <div class="rows">
+                            <div class="col-md-8">
+                            <input class="mealid" type="hidden" name="mealid" id="mealid" value="">
+                              <input name="MAX_FILE_SIZE" type=
+                              "hidden" value="1000000"> <input id=
+                              "photo" name="photo" type="file"
+                              accept="image/png, image/gif, image/jpeg"
+                              >
+                            </div>
+
+                            <div class="col-md-4"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button class="btn btn-default" data-dismiss="modal">Close</button> <button class="btn btn-primary"
+                    name="savephoto" type="submit">Upload Photo</button>
+                  </div>
+                </form>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
   <section class="content-header">
       <h1>
         <?php echo isset($title) ? $title : ''; ?>

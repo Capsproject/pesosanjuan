@@ -11,9 +11,7 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
 }
   $user = New User();
   $singleuser = $user->single_user($USERID);
-
- 
-  ?>
+?>
 <div class="container">
 <div class="panel-body inf-content">
     <div class="row">

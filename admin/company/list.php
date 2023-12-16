@@ -4,12 +4,12 @@
      } 
 ?>
 	<div class="row">
-       	 <div class="col-lg-12">
+		<div class="col-lg-12">
             <h1 class="page-header">List of Companies  <a href="index.php?view=add" class="btn btn-primary btn-xs  ">  <i class="fa fa-plus-circle fw-fa"></i> Add Company</a>  </h1>
-       		</div>
+		</div>
         	<!-- /.col-lg-12 -->
-   		 </div>
-	 		    <form action="controller.php?action=delete" Method="POST">  	
+	</div>
+	 	<form action="controller.php?action=delete" Method="POST">  	
 			     <div class="table-responsive">					
 				<table id="dash-table" class="table table-striped table-bordered table-hover"  style="font-size:12px" cellspacing="0">
 				
@@ -55,4 +55,3 @@
 			
 				</form>
 	
- <div class="table-responsive">	 

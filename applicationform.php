@@ -135,7 +135,7 @@ if (isset($_SESSION['APPLICANTID'])) {
                                         <div class="col-sm-12"> 
                                             <p>Job Description:</p>
                                             <ul style="list-style: none;"> 
-                                                 <li><?php echo $result->JOBDESCRIPTION ;?></li> 
+                                                    <li><?php echo $result->JOBDESCRIPTION ;?></li> 
                                             </ul> 
                                          </div>
                                         <div class="col-sm-12">
