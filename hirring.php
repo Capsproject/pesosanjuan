@@ -8,6 +8,7 @@
          <th>Job Title</th>
          <th>Company</th>
          <th>Location</th>
+         <th>Required No.</th>
          <th>Date Posted</th>
      </thead>
      <tbody>
@@ -29,6 +30,7 @@
         echo '<td><a href="'.web_root.'index.php?q=viewjob&search='.$result->JOBID.'">'.$result->OCCUPATIONTITLE.'</a></td>';
         echo '<td>'.$result->COMPANYNAME.'</td>';
         echo '<td>'.$result->COMPANYADDRESS.'</td>';
+        echo '<td>'.$result->REQ_NO_EMPLOYEES.'</td>';
         echo '<td>'.date_format(date_create($result->DATEPOSTED),'m/d/Y').'</td>';
         echo '</tr>';
 
