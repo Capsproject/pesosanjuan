@@ -1,4 +1,7 @@
-  
+  <?php
+    $banner = New banner();
+    $singlebanner = $banner->get_banner(1);
+  ?>
   <section id="banner">
   <!-- Slider -->
         <div id="main-slider" class="flexslider">
@@ -9,11 +12,7 @@
                 </div>
               </li>
               <li>
-                <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/LGU SAN JUAN BANNER.jpg" alt="" />
-                <div class="flex-caption">
-                <h3>innovation</h3> 
-                <p>We create the opportunities</p> 
-                </div>
+                <img src="<?php echo web_root.'admin/banner/'. $singlebanner->bannerlocation;?>" alt="" />
               </li>
             </ul>
         </div>

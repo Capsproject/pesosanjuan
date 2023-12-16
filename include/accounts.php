@@ -140,7 +140,7 @@ class User {
 		$sql = "UPDATE ".self::$tblname." SET ";
 		$sql .= join(", ", $attribute_pairs);
 		$sql .= " WHERE USERID=". $id;
-	  $mydb->setQuery($sql);
+	  	$mydb->setQuery($sql);
 	 	if(!$mydb->executeQuery()) return false; 	
 		
 	}
@@ -156,6 +156,6 @@ class User {
 	
 	}	
 
-
+	
 }
 ?>

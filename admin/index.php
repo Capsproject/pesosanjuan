@@ -10,11 +10,6 @@ switch ($view) {
   case '1' :
         // $title="Home"; 
     // $content='home.php'; 
-    if ($_SESSION['ADMIN_ROLE']=='Cashier') {
-        # code...
-      redirect('orders/');
-
-    } 
     if ($_SESSION['ADMIN_ROLE']=='Administrator') {
         # code... 
 
