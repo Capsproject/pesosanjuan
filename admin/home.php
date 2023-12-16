@@ -1,8 +1,15 @@
 <?php
-
+require_once(LIB_PATH.DS.'config.php');
 class Dashboard{
+  private $database_name = database_name;
+  private $user = user;
+  private $password = pass;
+  private $server = server;
+  private $link;
+
   public function getjob(){
-    $link = mysqli_connect("localhost", "root", "", "jobjuan");
+    $link = mysqli_connect($this->server, $this->user, $this->password, $this->database_name);
+    
 
       /* check connection */
       if (mysqli_connect_errno()) {
@@ -24,7 +31,7 @@ class Dashboard{
       mysqli_close($link);
   }
   public function getuser() {
-    $link = mysqli_connect("localhost", "root", "", "jobjuan");
+    $link = mysqli_connect($this->server, $this->user, $this->password, $this->database_name);
 
       /* check connection */
       if (mysqli_connect_errno()) {
@@ -46,7 +53,8 @@ class Dashboard{
       mysqli_close($link);
   }
   public function getApplicants(){
-    $link = mysqli_connect("localhost", "root", "", "jobjuan");
+    $link = mysqli_connect($this->server, $this->user, $this->password, $this->database_name);
+
 
       /* check connection */
       if (mysqli_connect_errno()) {
@@ -68,7 +76,8 @@ class Dashboard{
       mysqli_close($link);
   }
   public function getallCompanies(){
-    $link = mysqli_connect("localhost", "root", "", "jobjuan");
+    $link = mysqli_connect($this->server, $this->user, $this->password, $this->database_name);
+
 
       /* check connection */
       if (mysqli_connect_errno()) {
@@ -89,9 +98,32 @@ class Dashboard{
       /* close connection */
       mysqli_close($link);
   }
+  public function getsumVacancy(){
+    $link = mysqli_connect($this->server, $this->user, $this->password, $this->database_name);
+
+
+      /* check connection */
+      if (mysqli_connect_errno()) {
+        printf("Connect failed: %s\n", mysqli_connect_error());
+        exit();
+      }
+
+      $query = "SELECT SUM(REQ_NO_EMPLOYEES) AS total_req_employees FROM tbljob;";
+      $result = mysqli_query($link, $query);
+      if ($result) {
+        $row = mysqli_fetch_row($result); // Fetch the result as an indexed array
+        $count = $row[0]; // The count is in the first (and only) column
+        echo $count;
+      } else {
+        echo "Query failed: " . mysqli_error($link);
+      }
+
+      /* close connection */
+      mysqli_close($link);
+  }
 }
 $dash = new Dashboard()
-?>
+?> 
     <section class="content-header">
       <h1>
         Dashboard
@@ -164,6 +196,20 @@ $dash = new Dashboard()
                 <?php $dash->getallCompanies() ?>
               </h3> 
               <p>Companies</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-pie-graph"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>
+                <?php $dash->getsumVacancy() ?>
+              </h3> 
+              <p>Total Vacancy</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
