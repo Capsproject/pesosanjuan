@@ -12,6 +12,11 @@
                 </div>
               </li>
               <li>
+                <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/transparent.png" alt="" />
+                <div class="flex-caption">
+                </div>
+              </li>
+              <li>
                 <img src="<?php echo web_root.'admin/banner/'. $singlebanner->bannerlocation;?>" alt="" />
               </li>
             </ul>
