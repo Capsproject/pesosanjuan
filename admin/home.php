@@ -216,15 +216,15 @@ $dash = new Dashboard()
         </div>
       </div>
   </section>
-  <section class="content">
+  <section class="content graph1">
     <div class="doughnutchart">
       <h1>Counts of Applicants and Vacancies</h1>
       <canvas id="myDoughnutChart"></canvas>
     </div>
     <div class="doughnutchart">
-      <h1></h1>
-      <canvas id="pieChart"></canvas>
-    </div>    
+      <h1>Counts of Hired Applicant in Every Mayor's Term</h1>
+      <canvas id="mybarchart"></canvas>
+    </div> 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </section>
   <section class=content>
@@ -307,6 +307,72 @@ try {
         }
     });
 </script>
+<?php
+try {
+    $pdo = new PDO("mysql:host=$server;dbname=$database_name", $user, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Prepare the SQL query
+    $sql = "SELECT YEAR(DATEHIRED) AS hired_year, COUNT(*) AS hirednos FROM tblapplicants WHERE DATEHIRED IS NOT NULL GROUP BY hired_year";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+
+    // Initialize arrays to store labels and data
+    $labels = array();
+    $data = array();
+
+    // Fetch and add data to the arrays
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $labels[] = $row['hired_year']; // Use hired_year as labels
+        $data[] = (int) $row['hirednos']; // Use hirednos as data
+    }
+
+    // Combine SQL data with your sample data
+    $barchartData = [
+        'labels' => $labels,
+        'datasets' => [
+            [
+                'label' => 'Number of Applicants Hired',
+                'backgroundColor' => 'rgba(75, 192, 192, 0.2)',
+                'borderColor' => 'rgba(75, 192, 192, 1)',
+                'borderWidth' => 1,
+                'data' => $data, // Use the data array from SQL
+            ],
+        ],
+    ];
+
+    // Convert the chartData array to JSON format
+    $barchartDataJSON = json_encode($barchartData);
+
+    // Pass the JSON data to your JavaScript code
+    echo "<script>var chartData = $barchartDataJSON;</script>";
+
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+?>
+
+
+
+
+
+<script data-chart-data="<?php echo htmlentities($barchartDataJSON); ?>">
+    // JavaScript code to render the chart
+    var ctx = document.getElementById('mybarchart').getContext('2d');
+    var chartData = JSON.parse(document.currentScript.getAttribute('data-chart-data'));
+    var mybarchart = new Chart(ctx, {
+        type: 'bar',
+        data: chartData,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
 
 <?php
 $database_name = database_name;
@@ -360,3 +426,19 @@ try {
         data: doughnutData,
     });
 </script>
+
+<style>
+  .graph1{
+    display: flex;
+    justify-content: space-around;
+  }
+  .doughnutchart{
+    width: 45%;
+  }
+  .doughnutchart h1{
+    text-align: center;
+  }
+  .doughnutchart canvas{
+    width: 100%;
+  }
+</style>
