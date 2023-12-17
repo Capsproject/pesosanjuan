@@ -20,8 +20,8 @@
      $COMPANYNAME = '';
 
  }
-    $sql = "SELECT * FROM `tblcompany` c, `tbljob` j WHERE c.`COMPANYID` = j.`COMPANYID` AND c.`COMPANYNAME` LIKE '%" . $COMPANYNAME . "%' AND j.`archived` = 'false' ORDER BY j.`DATEPOSTED` DESC";
-    // $sql = "SELECT * FROM `tblcompany` c,`tbljob` j WHERE c.`COMPANYID`=j.`COMPANYID` AND COMPANYNAME LIKE '%" . $COMPANYNAME ."%' ORDER BY DATEPOSTED DESC" ;
+    // $sql = "SELECT * FROM `tblcompany` c, `tbljob` j WHERE c.`COMPANYID` = j.`COMPANYID` AND c.`COMPANYNAME` LIKE '%" . $COMPANYNAME . "%' AND j.`archived` = 'false' ORDER BY j.`DATEPOSTED` DESC";
+    $sql = "SELECT * FROM `tblcompany` c,`tbljob` j WHERE c.`COMPANYID`=j.`COMPANYID` AND COMPANYNAME LIKE '%" . $COMPANYNAME ."%' ORDER BY DATEPOSTED DESC" ;
     $mydb->setQuery($sql);
     $cur = $mydb->loadResultList();
 
