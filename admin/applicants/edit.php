@@ -9,7 +9,7 @@
     if($empid==''){
   redirect("index.php");
 }
- 
+
 
   $employee = New Employee();
   $emp = $employee->single_employee($empid);
@@ -55,10 +55,10 @@
 
   }
 
-   switch ($emp->CIVILSTATUS) {
+  switch ($emp->CIVILSTATUS) {
 
-     case 'Single':
-       # code...
+      case 'Single':
+      # code...
         $civilstatus =' <select class="form-control input-sm" name="CIVILSTATUS" id="CIVILSTATUS">
                                       <option value="none" >Select</option>
                                       <option SELECTED value="Single">Single</option>
@@ -66,7 +66,7 @@
                                       <option value="Widow" >Widow</option>
                                       <!-- <option value="Fourth" >Fourth</option> -->
                                   </select> ';
-       break;
+        break;
      case 'Married':
        # code...
          $civilstatus=' <select class="form-control input-sm" name="CIVILSTATUS" id="CIVILSTATUS">
@@ -307,7 +307,7 @@
                              <div class="form-group">
                               <div class="col-md-8">
                                 <label class="col-md-4 control-label" for=
-                                "TELNO">Conact No.:</label>
+                                "TELNO">Contact No.:</label>
 
                                 <div class="col-md-8">
                                   

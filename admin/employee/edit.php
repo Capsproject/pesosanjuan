@@ -336,7 +336,6 @@
                                       # code...
                                       echo '<option value='.$row->COMPANYID.'>'.$row->COMPANYNAME.'</option>';
                                     }
-
                                   ?>
                                 </select>
                               </div>

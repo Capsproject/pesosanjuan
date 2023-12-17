@@ -139,8 +139,7 @@ switch ($action) {
 
 		    }else{
 
-		    	@$datehired = date_format(date_create($_POST['DATEHIRED']),'Y-m-d');
-
+					@$datehired = date_format(date_create($_POST['DATEHIRED']),'Y-m-d');
 					$emp = New Employee(); 
 					$emp->EMPLOYEEID 		= $_POST['EMPLOYEEID'];
 					$emp->FNAME				= $_POST['FNAME']; 
@@ -276,44 +275,46 @@ switch ($action) {
 			 
 		}
 function doApproved(){
-global $mydb;
-	if (isset($_POST['submit'])) {
-		# code...
-		$id = $_POST['JOBREGID'];
-		$applicantid = $_POST['APPLICANTID'];
+    global $mydb;
 
-		$remarks = $_POST['REMARKS'];
-		$sql="UPDATE `tbljobregistration` SET `REMARKS`='{$remarks}',PENDINGAPPLICATION=0,HVIEW=0,DATETIMEAPPROVED=NOW() WHERE `REGISTRATIONID`='{$id}'";
-		$mydb->setQuery($sql);
-		$cur = $mydb->executeQuery();
+    if (isset($_POST['submit'])) {
+        $id = $_POST['JOBREGID'];
+        $applicantid = $_POST['APPLICANTID'];
+        $remarks = $_POST['REMARKS'];
+        $pendingapplication = $_POST['PENDINGAPPLICATION'];
 
-		if ($cur) {
-			# code...
-			$sql = "SELECT * FROM `tblfeedback` WHERE `REGISTRATIONID`='{$id}'";
-			$mydb->setQuery($sql);
-			$res = $mydb->loadSingleResult();
-			if (isset($res)) {
-				# code...
-				$sql="UPDATE `tblfeedback` SET `FEEDBACK`='{$remarks}' WHERE `REGISTRATIONID`='{$id}'";
-				$mydb->setQuery($sql);
-				$cur = $mydb->executeQuery();
-			}else{
-				$sql="INSERT INTO `tblfeedback` (`APPLICANTID`, `REGISTRATIONID`,`FEEDBACK`) VALUES ('{$applicantid}','{$id}','{$remarks}')";
-				$mydb->setQuery($sql);
-				$cur = $mydb->executeQuery(); 
+        $sql="UPDATE `tbljobregistration` SET `REMARKS`='{$remarks}',`PENDINGAPPLICATION`='{$pendingapplication}',HVIEW=0,DATETIMEAPPROVED=NOW() WHERE `REGISTRATIONID`='{$id}'";
+        $mydb->setQuery($sql);
+        $cur = $mydb->executeQuery();
 
-			}
+        // Update tblapplicants if PENDINGAPPLICATION is HIRED
+        if ($pendingapplication === 'HIRED') {
+            $sql = "UPDATE `tblapplicants` SET `DATEHIRED`=NOW() WHERE `APPLICANTID`='{$applicantid}'";
+            $mydb->setQuery($sql);
+            $cur = $mydb->executeQuery();
+        }
 
-			message("Applicant is calling for an interview.", "success");
-			redirect("index.php?view=view&id=".$id); 
-		}else{
-			message("cannot be sve.", "error");
-			redirect("index.php?view=view&id=".$id); 
-		}
+        if ($cur) {
+            $sql = "SELECT * FROM `tblfeedback` WHERE `REGISTRATIONID`='{$id}'";
+            $mydb->setQuery($sql);
+            $res = $mydb->loadSingleResult();
 
+            if (isset($res)) {
+                $sql = "UPDATE `tblfeedback` SET `FEEDBACK`='{$remarks}' WHERE `REGISTRATIONID`='{$id}'";
+                $mydb->setQuery($sql);
+                $cur = $mydb->executeQuery();
+            } else {
+                $sql = "INSERT INTO `tblfeedback` (`APPLICANTID`, `REGISTRATIONID`, `FEEDBACK`) VALUES ('{$applicantid}','{$id}','{$remarks}')";
+                $mydb->setQuery($sql);
+                $cur = $mydb->executeQuery();
+            }
 
-	}
+            message("Applicant is calling for an interview.", "success");
+            redirect("index.php?view=view&id=" . $id);
+        } else {
+            message("Cannot be saved.", "error");
+            redirect("index.php?view=view&id=" . $id);
+        }
+    }
 }
-
- 
 ?>

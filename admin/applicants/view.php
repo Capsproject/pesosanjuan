@@ -23,6 +23,46 @@ global $mydb;
 	$mydb->setQuery($sql);
 	$attachmentfile = $mydb->loadSingleResult();
 
+	switch($jobreg->PENDINGAPPLICATION) {
+		case 'PENDING':
+			$PENDINGAPPLICATION = ' <select class="form-control input-sm" name="PENDINGAPPLICATION" id="PENDINGAPPLICATION">
+			<option value="none" >Select</option>
+			<option  SELECTED value="PENDING">PENDING</option>
+			<option  value="FOR INTERVIEW">FOR INTERVIEW</option>
+			<option value="FOR EXAM" >FOR EXAM</option>
+			<option value="HIRED" >HIRED</option>
+		</select> ';;
+			break;
+		case 'FOR INTERVIEW':
+			$PENDINGAPPLICATION = ' <select class="form-control input-sm" name="PENDINGAPPLICATION" id="PENDINGAPPLICATION">
+			<option value="none" >Select</option>
+			<option value="PENDING">PENDING</option>
+			<option SELECTED value="FOR INTERVIEW">FOR INTERVIEW</option>
+			<option value="FOR EXAM" >FOR EXAM</option>
+			<option value="HIRED" >HIRED</option>
+		</select> ';;
+			break;
+		case 'FOR EXAM':
+			$PENDINGAPPLICATION = ' <select class="form-control input-sm" name="PENDINGAPPLICATION" id="PENDINGAPPLICATION">
+			<option value="none" >Select</option>
+			<option value="PENDING">PENDING</option>
+			<option value="FOR INTERVIEW">FOR INTERVIEW</option>
+			<option SELECTED value="FOR EXAM" >FOR EXAM</option>
+			<option value="HIRED" >HIRED</option>
+		</select> ';;
+			break;
+		case 'HIRED':
+			$PENDINGAPPLICATION = '<select class="form-control input-sm" name="PENDINGAPPLICATION" id="PENDINGAPPLICATION">
+				<option value="none">Select</option>
+				<option value="PENDING">PENDING</option>
+				<option value="FOR INTERVIEW">FOR INTERVIEW</option>
+				<option value="FOR EXAM">FOR EXAM</option>
+				<option SELECTED value="HIRED">HIRED</option>
+			</select>';
+
+			// Add DATEHIRED input field with JavaScript to set the current date
+			break;
+	}
 
 ?> 
 <style type="text/css">
@@ -62,6 +102,7 @@ global $mydb;
 	/*padding: 0;*/
 
 }
+
 </style>
 <form action="controller.php?action=approve" method="POST">
 <div class="col-sm-12 content-header" style="">View Details</div>
@@ -118,9 +159,19 @@ global $mydb;
 <div class="col-sm-12 content-footer">
 <p><i class="fa fa-paperclip"></i>  Attachment Files</p>
 	<div class="col-sm-12 slider">
-		 <h3>Download Resume <a href="<?php echo web_root.'applicant/'.$attachmentfile->FILE_LOCATION; ?>">Here</a></h3>
+		<h3>Download Resume <a href="<?php echo web_root.'applicant/'.$attachmentfile->FILE_LOCATION; ?>">Here</a></h3>
 	</div> 
+	<div class="form-group">
+		<div class="col-md-8">
+            <label class="col-md-4 control-label" for="PENDINGAPPLICATION">
+				Application Status
+			</label>
 
+            <div class="col-md-8">
+            	<?php echo $PENDINGAPPLICATION; ?>
+            </div>
+        </div>
+	</div> 
 	<div class="col-sm-12">
 		<p>Feedback</p>
 		<textarea class="input-group" name="REMARKS"><?php echo isset($jobreg->REMARKS) ? $jobreg->REMARKS : ""; ?></textarea>
