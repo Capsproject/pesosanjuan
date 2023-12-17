@@ -281,6 +281,7 @@
 <script src="<?php echo web_root; ?>plugins/home-plugins/js/jquery.magnific-popup.min.js"></script>
 <script src="<?php echo web_root; ?>plugins/home-plugins/js/animate.js"></script>
 <script src="<?php echo web_root; ?>plugins/home-plugins/js/custom.js"></script> 
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <!-- <script src="<?php echo web_root; ?>plugins/paralax/paralax.js"></script>  -->
 
  <script type="text/javascript">
