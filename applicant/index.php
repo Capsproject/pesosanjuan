@@ -9,25 +9,25 @@ switch ($view) {
 	case 'appliedjobs' :
 	    $title="Profile";	
         $_SESSION['appliedjobs']	='active' ; 
-		$content ='Profile.php';
+		$content ='profile.php';
 		break;
 
 	case 'notification' :
 	    $title="Profile";	
         $_SESSION['notification']	='active' ; 
-		$content ='Profile.php';
+		$content ='profile.php';
 		break;
   
 	case 'accounts' : 
 	    $title="Profile";	
         $_SESSION['accounts']	='active' ;
-        $content ='Profile.php';
+        $content ='profile.php';
 		break;
 	
 	default : 
 	    $title="Profile";	
         $_SESSION['appliedjobs']	='active' ;
-		$content ='Profile.php';		
+		$content ='profile.php';		
 }
 require_once("../theme/templates.php");
 ?>
