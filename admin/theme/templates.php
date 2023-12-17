@@ -8,8 +8,8 @@
         <!-- Font Awesome -->
         <link rel="stylesheet" href="<?php echo web_root;?>plugins/font-awesome/css/font-awesome.min.css">
 
-        <link rel="stylesheet" href="<?php echo web_root;?>plugins/datatables/dataTables.bootstrap.css">  -->
-        <link rel="stylesheet" href="<?php echo web_root;?>plugins/datatables/jquery.dataTables.min.css"> 
+        <link rel="stylesheet" href="<?php echo web_root;?>plugins/dataTables/dataTables.bootstrap.css">  -->
+        <link rel="stylesheet" href="<?php echo web_root;?>plugins/dataTables/jquery.dataTables.min.css"> 
 
         <!-- Ionicons -->
         <!-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
@@ -307,14 +307,25 @@
       <script type="text/javascript" src="<?php echo web_root; ?>plugins/datepicker/bootstrap-datetimepicker.js" charset="UTF-8"></script>
       <script type="text/javascript" src="<?php echo web_root; ?>plugins/datepicker/locales/bootstrap-datetimepicker.uk.js" charset="UTF-8"></script>
 
-      <script type="text/javascript" src="<?php echo web_root; ?>plugins/datatables/dataTables.bootstrap.min.js" ></script> 
-      <script src="<?php echo web_root; ?>plugins/datatables/jquery.datatables.min.js"></script> 
+      <script type="text/javascript" src="<?php echo web_root; ?>plugins/dataTables/dataTables.bootstrap.min.js" ></script> 
+      <script src="<?php echo web_root; ?>plugins/datatables/jquery.dataTables.min.js"></script> 
 
       <script src="<?php echo web_root; ?>plugins/slimScroll/jquery.slimscroll.min.js"></script>
 
       <script type="text/javascript" language="javascript" src="<?php echo web_root; ?>plugins/input-mask/jquery.inputmask.js"></script> 
       <script type="text/javascript" language="javascript" src="<?php echo web_root; ?>plugins/input-mask/jquery.inputmask.date.extensions.js"></script> 
       <script type="text/javascript" language="javascript" src="<?php echo web_root; ?>plugins/input-mask/jquery.inputmask.extensions.js"></script> 
+
+   <!--      <script src="<?php echo web_root; ?>admin/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo web_root; ?>admin/js/dataTables.bootstrap.min.js"></script>
+ <script type="text/javascript" src="<?php echo web_root; ?>js/jquery-1.10.2.js"></script>       
+        <script type="text/javascript" src="<?php echo web_root; ?>js/jquery.mixitup.min.js" ></script>
+        <script type="text/javascript" src="<?php echo web_root; ?>js/main.js" ></script> 
+        <script type="text/javascript" src="<?php echo web_root; ?>js/janobe.js" ></script> 
+        <script src="<?php echo web_root; ?>admin/js/ekko-lightbox.js"></script>
+        <script src="<?php echo web_root; ?>admin/js/lightboxfunction.js"></script> 
+  -->
+<!-- jQuery 2.1.4 --> 
 
 <script>
   $(function () {
