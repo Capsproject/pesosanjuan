@@ -258,8 +258,8 @@
 <script src="<?php echo web_root; ?>plugins/home-plugins/js/bootstrap.min.js"></script>
  
 
-<script type="text/javascript" src="<?php echo web_root; ?>plugins/dataTables/dataTables.bootstrap.min.js" ></script>  
-<script src="<?php echo web_root; ?>plugins/datatables/jquery.dataTables.min.js"></script> 
+<script type="text/javascript" src="<?php echo web_root; ?>plugins/datatables/datatables.bootstrap.min.js" ></script>  
+<script src="<?php echo web_root; ?>plugins/datatables/jquery.datatables.min.js"></script> 
 
 <script type="text/javascript" src="<?php echo web_root; ?>plugins/datepicker/bootstrap-datepicker.js" charset="UTF-8"></script>
 <script type="text/javascript" src="<?php echo web_root; ?>plugins/datepicker/bootstrap-datetimepicker.js" charset="UTF-8"></script>
