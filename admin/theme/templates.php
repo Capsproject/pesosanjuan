@@ -8,8 +8,8 @@
         <!-- Font Awesome -->
         <link rel="stylesheet" href="<?php echo web_root;?>plugins/font-awesome/css/font-awesome.min.css">
 
-        <link rel="stylesheet" href="<?php echo web_root;?>plugins/datatables/datatables.bootstrap.css">  -->
-        <link rel="stylesheet" href="<?php echo web_root;?>plugins/datatables/jquery.datatables.min.css"> 
+        <link rel="stylesheet" href="<?php echo web_root;?>plugins/datatables/dataTables.bootstrap.css">  -->
+        <link rel="stylesheet" href="<?php echo web_root;?>plugins/datatables/jquery.dataTables.min.css"> 
 
         <!-- Ionicons -->
         <!-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
@@ -27,7 +27,7 @@
         <!-- Date Picker -->
         <link href="<?php echo web_root; ?>plugins/datepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 
-        <link rel="stylesheet" href="<?php echo web_root;?>plugins/datatables/jquery.datatables.min.css">  
+        <link rel="stylesheet" href="<?php echo web_root;?>plugins/datatables/jquery.dataTables.min.css">  
 
         <link rel="stylesheet" href="<?php echo web_root;?>plugins/datepicker/datepicker3.css">
         <!-- Daterange picker -->
