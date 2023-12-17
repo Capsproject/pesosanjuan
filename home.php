@@ -93,3 +93,25 @@
       </div>
     </div>
   </section>
+
+<style type="text/css">
+
+  .medium-size {
+      max-width: 2000%; /* Adjust the percentage as needed */
+      height: auto;
+  }
+
+  #banner {
+      text-align: center;
+      background:linear-gradient(0deg, rgba(255, 0, 125, 0.3), rgba(255, 0, 150, 0.3)), url(https://lh4.googleusercontent.com/y945EKYrkiv7wYcRMRVXwH68cPlLadrAsXAbAccGopn7dH7tUZwogh19z0XrnExgazpp13Ft72hmvEgcPb7TRc8=w16383);
+      background-size:cover;
+      
+  }
+
+  #main-slider {
+      margin: 0 auto;
+      max-width: 1000px; /* Adjust the maximum width as needed */
+  }
+
+
+</style>
