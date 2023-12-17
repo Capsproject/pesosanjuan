@@ -8,8 +8,8 @@
         <!-- Font Awesome -->
         <link rel="stylesheet" href="<?php echo web_root;?>plugins/font-awesome/css/font-awesome.min.css">
 
-        <link rel="stylesheet" href="<?php echo web_root;?>plugins/datatables/dataTables.bootstrap.css">  -->
-        <link rel="stylesheet" href="<?php echo web_root;?>plugins/datatables/jquery.dataTables.min.css"> 
+        <link rel="stylesheet" href="<?php echo web_root;?>plugins/datatables/datatables.bootstrap.css">  -->
+        <link rel="stylesheet" href="<?php echo web_root;?>plugins/datatables/jquery.datatables.min.css"> 
 
         <!-- Ionicons -->
         <!-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
@@ -27,7 +27,7 @@
         <!-- Date Picker -->
         <link href="<?php echo web_root; ?>plugins/datepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 
-        <link rel="stylesheet" href="<?php echo web_root;?>plugins/datatables/jquery.dataTables.min.css">  
+        <link rel="stylesheet" href="<?php echo web_root;?>plugins/datatables/jquery.datatables.min.css">  
 
         <link rel="stylesheet" href="<?php echo web_root;?>plugins/datepicker/datepicker3.css">
         <!-- Daterange picker -->
@@ -307,8 +307,8 @@
       <script type="text/javascript" src="<?php echo web_root; ?>plugins/datepicker/bootstrap-datetimepicker.js" charset="UTF-8"></script>
       <script type="text/javascript" src="<?php echo web_root; ?>plugins/datepicker/locales/bootstrap-datetimepicker.uk.js" charset="UTF-8"></script>
 
-      <script type="text/javascript" src="<?php echo web_root; ?>plugins/datatables/dataTables.bootstrap.min.js" ></script> 
-      <script src="<?php echo web_root; ?>plugins/datatables/jquery.dataTables.min.js"></script> 
+      <script type="text/javascript" src="<?php echo web_root; ?>plugins/datatables/datatables.bootstrap.min.js" ></script> 
+      <script src="<?php echo web_root; ?>plugins/datatables/jquery.datatables.min.js"></script> 
 
       <script src="<?php echo web_root; ?>plugins/slimScroll/jquery.slimscroll.min.js"></script>
 
