@@ -217,9 +217,18 @@ $dash = new Dashboard()
       </div>
   </section>
   <section class="content">
-    <canvas id="myChart"></canvas>
-
+    <div class="doughnutchart">
+      <h1>Counts of Applicants and Vacancies</h1>
+      <canvas id="myDoughnutChart"></canvas>
+    </div>
+    <div class="doughnutchart">
+      <h1></h1>
+      <canvas id="pieChart"></canvas>
+    </div>    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </section>
+  <section class=content>
+    <canvas id="myChart"></canvas>
   </section>
   <?php
 $database_name = database_name;
@@ -299,3 +308,55 @@ try {
     });
 </script>
 
+<?php
+$database_name = database_name;
+$user = user;
+$password = pass;
+$server = server;
+
+try {
+    $pdo = new PDO("mysql:host=$server;dbname=$database_name", $user, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // SQL query to get total number of required employees
+    $sqlReqEmployees = "SELECT SUM(REQ_NO_EMPLOYEES) AS total_req_employees FROM tbljob";
+    $stmtReqEmployees = $pdo->query($sqlReqEmployees);
+    $totalReqEmployees = $stmtReqEmployees->fetchColumn();
+
+    // SQL query to get total number of hired applicants
+    $sqlNoHired = "SELECT COUNT(*) AS total_no_hired FROM tblapplicants";
+    $stmtNoHired = $pdo->query($sqlNoHired);
+    $totalNoHired = $stmtNoHired->fetchColumn();
+
+    // Combine SQL data with your sample data
+    $doughnutData = [
+        'labels' => ['Required Employees', 'Hired Employees'],
+        'datasets' => [
+            [
+                'data' => [$totalReqEmployees, $totalNoHired],
+                'backgroundColor' => ['rgba(75, 192, 192, 0.2)', 'rgba(255, 99, 132, 0.2)'],
+                'hoverBackgroundColor' => ['rgba(75, 192, 192, 0.5)', 'rgba(255, 99, 132, 0.5)'],
+            ],
+        ],
+    ];
+
+    // Convert the doughnutData array to JSON format
+    $doughnutDataJSON = json_encode($doughnutData);
+
+    // Pass the JSON data to your JavaScript code
+    echo "<script>var doughnutData = $doughnutDataJSON;</script>";
+
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+?>
+
+<!-- Add this script for rendering the doughnut chart -->
+<script data-doughnut-data="<?php echo htmlentities($doughnutDataJSON); ?>">
+    var doughnutData = JSON.parse(document.currentScript.getAttribute('data-doughnut-data'));
+    var ctxDoughnut = document.getElementById('myDoughnutChart').getContext('2d');
+    var myDoughnutChart = new Chart(ctxDoughnut, {
+        type: 'doughnut',
+        data: doughnutData,
+    });
+</script>
