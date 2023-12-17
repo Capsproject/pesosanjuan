@@ -27,7 +27,7 @@
         <!-- Date Picker -->
         <link href="<?php echo web_root; ?>plugins/datepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 
-        <link rel="stylesheet" href="<?php echo web_root;?>plugins/dataTables/jquery.dataTables.min.css">  
+        <link rel="stylesheet" href="<?php echo web_root;?>plugins/datatables/jquery.dataTables.min.css">  
 
         <link rel="stylesheet" href="<?php echo web_root;?>plugins/datepicker/datepicker3.css">
         <!-- Daterange picker -->
