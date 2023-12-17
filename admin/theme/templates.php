@@ -307,7 +307,7 @@
       <script type="text/javascript" src="<?php echo web_root; ?>plugins/datepicker/bootstrap-datetimepicker.js" charset="UTF-8"></script>
       <script type="text/javascript" src="<?php echo web_root; ?>plugins/datepicker/locales/bootstrap-datetimepicker.uk.js" charset="UTF-8"></script>
 
-      <script type="text/javascript" src="<?php echo web_root; ?>plugins/datatables/datatables.bootstrap.min.js" ></script> 
+      <script type="text/javascript" src="<?php echo web_root; ?>plugins/datatables/dataTables.bootstrap.min.js" ></script> 
       <script src="<?php echo web_root; ?>plugins/datatables/jquery.datatables.min.js"></script> 
 
       <script src="<?php echo web_root; ?>plugins/slimScroll/jquery.slimscroll.min.js"></script>
