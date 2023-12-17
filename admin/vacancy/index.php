@@ -23,6 +23,9 @@ switch ($view) {
     case 'view' :
 		$content    = 'view.php';		
 		break;
+	case 'archive' :
+		$content    = 'archivedlist.php';		
+		break;
 
 	default :
 		$content    = 'list.php';		

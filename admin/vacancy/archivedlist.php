@@ -3,31 +3,12 @@
       redirect(web_root."admin/index.php");
      } 
 ?>
-
-<style>
-	.flex-container {
-    display: flex;
-    justify-content: space-between; /* or any other flex property to adjust alignment */
-    align-items: center; /* or any other flex property to adjust alignment */
-}
-.end{
-	display: flex;
-    justify-content: flex-end;
-}
-
-</style>
 	<div class="row">
-		<div class="flex-container">
-			<div class="col-lg-12">
-				<h1 class="page-header">List of Vacancies  <a href="index.php?view=add" class="btn btn-primary btn-xs  ">  <i class="fa fa-plus-circle fw-fa"></i> Add Job Vacancy</a>  </h1>
-			</div>
-			<div class="col-lg-12 end">
-			<a href="index.php?view=archive" class="btn btn-primary btn-xs  ">Archived</a>
-			</div>
-			
-   		</div>
-		</div>
-       	 
+       	 <div class="col-lg-12">
+            <h1 class="page-header">Archived Vacancies</h1>
+       		</div>
+        	<!-- /.col-lg-12 -->
+   		 </div>
 	 		    <form action="controller.php?action=delete" Method="POST">  	
 			     <div class="table-responsive">					
 				<table id="dash-table" class="table table-striped table-bordered table-hover"  style="font-size:12px" cellspacing="0">
@@ -52,7 +33,8 @@
 				  <tbody>
 				  	<?php 
 				  	 // `COMPANYID`, `OCCUPATIONTITLE`, `REQ_NO_EMPLOYEES`, `SALARIES`, `DURATION_EMPLOYEMENT`, `QUALIFICATION_WORKEXPERIENCE`, `JOBDESCRIPTION`, `PREFEREDSEX`, `SECTOR_VACANCY`, `JOBSTATUS`
-				  		$mydb->setQuery("SELECT * FROM `tbljob` j, `tblcompany` c WHERE j.COMPANYID=c.COMPANYID AND j.archived = 'false'");
+					   $mydb->setQuery("SELECT * FROM `tbljob` j, `tblcompany` c WHERE j.COMPANYID=c.COMPANYID AND j.archived = 'true'");
+
 				  		$cur = $mydb->loadResultList(); 
 						foreach ($cur as $result) {
 				  		echo '<tr>';

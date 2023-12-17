@@ -292,6 +292,9 @@ function doApproved(){
             $sql = "UPDATE `tblapplicants` SET `DATEHIRED`=NOW() WHERE `APPLICANTID`='{$applicantid}'";
             $mydb->setQuery($sql);
             $cur = $mydb->executeQuery();
+			$sql = "UPDATE `tbljob` SET `req_no_employees` = `req_no_employees` - 1 WHERE `JOBID` = (SELECT `JOBID` FROM `tbljobregistration` WHERE `APPLICANTID`='{$applicantid}')";
+			$mydb->setQuery($sql);
+			$cur = $mydb->executeQuery();
         }
 
         if ($cur) {

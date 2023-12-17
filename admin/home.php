@@ -100,8 +100,6 @@ class Dashboard{
   }
   public function getsumVacancy(){
     $link = mysqli_connect($this->server, $this->user, $this->password, $this->database_name);
-
-
       /* check connection */
       if (mysqli_connect_errno()) {
         printf("Connect failed: %s\n", mysqli_connect_error());

@@ -33,6 +33,7 @@ switch ($action) {
 			$messageStats = false;
 			message("All field is required!","error");
 			redirect('index.php?view=add');
+		
 		}else{	
 			$sql = "SELECT * FROM tblcategory where CATEGORYID = {$_POST['CATEGORY']}";
 			$mydb->setQuery($sql);
