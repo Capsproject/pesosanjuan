@@ -14,8 +14,8 @@
 <!-- <link rel="stylesheet" href="<?php echo web_root;?>plugins/dataTables/dataTables.bootstrap.css">  --> 
 <link rel="stylesheet" href="<?php echo web_root;?>plugins/font-awesome/css/font-awesome.min.css"> 
 
-<link rel="stylesheet" href="<?php echo web_root;?>plugins/datatables/jquery.datatables.min.css"> 
-<link rel="stylesheet" href="<?php echo web_root;?>plugins/datatables/jquery.datatables_themeroller.css"> 
+<link rel="stylesheet" href="<?php echo web_root;?>plugins/datatables/jquery.dataTables.min.css"> 
+<link rel="stylesheet" href="<?php echo web_root;?>plugins/datatables/jquery.dataTables_themeroller.css"> 
 <!-- datetime picker CSS -->
 <link href="<?php echo web_root; ?>plugins/datepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 <link href="<?php echo web_root; ?>plugins/datepicker/datepicker3.css" rel="stylesheet" media="screen">
